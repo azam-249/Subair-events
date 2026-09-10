@@ -563,12 +563,22 @@ nav ul li a:hover::after {
 
 
 /* =========================
+   MOBILE MENU
+========================= */
+
+.menu-toggle {
+    display: none;
+}
+
+
+/* =========================
    MOBILE
 ========================= */
 
 @media (max-width: 600px) {
 
     /* HEADER */
+
     header {
         padding: 12px 15px;
     }
@@ -576,6 +586,9 @@ nav ul li a:hover::after {
     nav {
         width: 100%;
         position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     nav h1 {
@@ -589,28 +602,43 @@ nav ul li a:hover::after {
         color: #c59d5f;
     }
 
+
     /* زر القائمة */
+
     .menu-toggle {
         display: block;
-        background: none;
+
+        background: transparent;
         border: none;
+
         color: #c59d5f;
+
         font-size: 30px;
+        line-height: 1;
+
         cursor: pointer;
+
         padding: 4px 8px;
-        z-index: 1002;
+
+        position: relative;
+        z-index: 2000;
     }
 
+
     /* القائمة مخفية */
+
     nav ul {
         display: none;
     }
 
-    /* القائمة بعد الضغط */
+
+    /* القائمة عند الضغط */
+
     nav ul.active {
         display: flex;
 
         position: absolute;
+
         top: calc(100% + 10px);
         right: 0;
 
@@ -618,67 +646,103 @@ nav ul li a:hover::after {
 
         flex-direction: column;
         align-items: stretch;
+
         gap: 5px;
 
         padding: 12px;
         margin: 0;
 
-        background: rgba(17, 17, 17, 0.97);
-        backdrop-filter: blur(10px);
+        background: rgba(17, 17, 17, 0.98);
 
         border-radius: 10px;
 
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.35);
 
-        z-index: 1001;
+        z-index: 1500;
     }
+
+
+    /* عناصر القائمة */
 
     nav ul.active li {
         width: 100%;
+        margin: 0;
+        padding: 0;
     }
+
+
+    /* روابط القائمة */
 
     nav ul.active li a {
         display: block;
+
         width: 100%;
 
         padding: 12px 15px;
 
         color: white;
+
         font-size: 15px;
+
         text-decoration: none;
+
+        text-align: right;
 
         border-radius: 7px;
     }
+
+
+    /* إزالة الخط تحت الروابط */
 
     nav ul.active li a::after {
         display: none;
     }
 
+
+    /* Hover */
+
     nav ul.active li a:hover {
         color: #c59d5f;
+
         background: rgba(197, 157, 95, 0.12);
     }
 
-    .btn_nav {
-        text-align: center;
+
+    /* زر تواصل معنا */
+
+    nav ul.active .btn_nav {
+        display: block;
+
+        width: 100%;
+
         margin-top: 5px;
+
+        text-align: center;
     }
 
 
-    /* SERVICES */
+    /* =========================
+       SERVICES
+    ========================= */
+
     .services {
         padding: 60px 8px;
     }
 
     .services-box {
         display: flex;
+
         flex-direction: row;
+
         flex-wrap: nowrap;
+
         gap: 7px;
     }
 
     .service-card {
         width: calc((100% - 14px) / 3);
+
         min-width: 0;
     }
 
@@ -688,63 +752,90 @@ nav ul li a:hover::after {
 
     .service-card h3 {
         font-size: 13px;
-        margin: 10px 3px 7px;
+
+        margin:
+            10px 3px 7px;
     }
 
     .service-card p {
         font-size: 10px;
-        padding: 0 4px 15px;
+
+        padding:
+            0 4px 15px;
     }
 
 
-    /* GALLERY */
+    /* =========================
+       GALLERY
+    ========================= */
+
     .gallery {
         padding: 60px 8px;
     }
 
     .gallery-main {
         width: 100%;
+
         margin-bottom: 15px;
+
         border-radius: 12px;
     }
 
     .gallery-main img {
         width: 100%;
+
         height: auto;
+
         aspect-ratio: 1100 / 450;
+
         object-fit: cover;
     }
 
     .gallery-grid {
         width: 100%;
+
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
         gap: 10px;
     }
 
     .gallery-item {
         width: 100%;
+
         height: auto;
+
         aspect-ratio: 1 / 1;
+
         border-radius: 10px;
     }
 
 
-    /* CONTACT */
+    /* =========================
+       CONTACT
+    ========================= */
+
     .contact {
         padding: 60px 8px;
     }
 
     .contact-box {
         display: flex;
+
         flex-direction: row;
+
         flex-wrap: nowrap;
+
         gap: 10px;
     }
 
     .contact-item {
         width: calc((100% - 10px) / 2);
+
         min-width: 0;
+
         padding: 25px 8px;
     }
 
@@ -755,4 +846,5 @@ nav ul li a:hover::after {
     .contact-item a {
         font-size: 11px;
     }
+
 }
