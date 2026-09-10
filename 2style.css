@@ -68,15 +68,14 @@ nav {
 }
 
 nav h1 {
-    color: white;
-    font-size: clamp(13px, 1.8vw, 22px);
+    font-size: 14px;
     white-space: nowrap;
 }
 
 nav h1 span {
-    color: #c59d5f;
-    font-size: 1.35em;
+    font-size: 25px;
     font-weight: 700;
+    color: #c59d5f;
 }
 
 nav ul {
@@ -727,15 +726,95 @@ nav ul li a:hover::after {
    MOBILE MENU
 ========================= */
 
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: #c59d5f;
-    font-size: 30px;
-    cursor: pointer;
-    padding: 4px 8px;
-    line-height: 1;
+@media (max-width: 600px) {
+
+    header {
+        padding: 12px 15px;
+    }
+
+    nav {
+        position: relative;
+    }
+
+    nav h1 {
+        font-size: 15px;
+        white-space: nowrap;
+    }
+
+    /* زر القائمة */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: #c59d5f;
+        font-size: 30px;
+        cursor: pointer;
+        padding: 4px 8px;
+        z-index: 1002;
+    }
+
+    /* القائمة مخفية */
+    nav ul {
+        display: none !important;
+    }
+
+    /* القائمة عند فتحها */
+    nav ul.active {
+        display: flex !important;
+
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+
+        width: 100%;
+
+        background: rgba(17, 17, 17, 0.97);
+        backdrop-filter: blur(10px);
+
+        padding: 12px;
+        margin: 0;
+
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+        z-index: 1001;
+    }
+
+    nav ul.active li {
+        display: block;
+        width: 100%;
+    }
+
+    nav ul.active li a {
+        display: block;
+        width: 100%;
+
+        padding: 12px 15px;
+
+        color: white;
+        font-size: 15px;
+        text-decoration: none;
+
+        border-radius: 7px;
+    }
+
+    nav ul.active li a:hover {
+        background: rgba(197, 157, 95, 0.15);
+        color: #c59d5f;
+    }
+
+    nav ul.active li a::after {
+        display: none;
+    }
+
+    .btn_nav {
+        text-align: center;
+        margin-top: 5px;
+    }
 }
 
 /* =========================
