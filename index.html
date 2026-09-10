@@ -9,39 +9,32 @@
 
 </head>
 <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
 
-    menuToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
+menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
 
-        if (navMenu.classList.contains("active")) {
-            menuToggle.innerHTML = "✕";
-            menuToggle.setAttribute("aria-label", "إغلاق القائمة");
-        } else {
-            menuToggle.innerHTML = "☰";
-            menuToggle.setAttribute("aria-label", "فتح القائمة");
-        }
+    if (navMenu.classList.contains("active")) {
+        menuToggle.textContent = "✕";
+    } else {
+        menuToggle.textContent = "☰";
+    }
+});
+
+document.querySelectorAll("#navMenu a").forEach(link => {
+    link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+        menuToggle.textContent = "☰";
     });
-
-    // Close menu after clicking a link
-    document.querySelectorAll("#navMenu a").forEach(link => {
-        link.addEventListener("click", () => {
-            navMenu.classList.remove("active");
-            menuToggle.innerHTML = "☰";
-            menuToggle.setAttribute("aria-label", "فتح القائمة");
-        });
-    });
+});
 </script>
 <body>
  <header>
     <nav>
         <h1>مجموعة <span>صبير</span> لتنظيم المناسبات</h1>
 
-        <!-- Mobile Menu Button -->
-        <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
-            ☰
-        </button>
+        <button class="menu-toggle" id="menuToggle">☰</button>
 
         <ul id="navMenu">
             <li><a href="#hero">الرئيسية</a></li>
@@ -50,7 +43,7 @@
             <li><a href="#contact" class="btn_nav">تواصل معنا</a></li>
         </ul>
     </nav>
- </header>
+</header>
      <section id="hero" class="hero">
      <h1>مجموعة صبير لتنظيم المناسبات</h1>
       <p>نجعل مناسبتك لحظة لا تُنسى بلمسات فاخرة وتنظيم متكامل</p>
