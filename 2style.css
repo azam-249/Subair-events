@@ -70,6 +70,7 @@ nav {
 nav h1 {
     font-size: 14px;
     white-space: nowrap;
+   color: white;
 }
 
 nav h1 span {
