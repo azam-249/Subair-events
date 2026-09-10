@@ -8,19 +8,49 @@
     <link rel="stylesheet" href="2style.css">
 
 </head>
+<script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+
+        if (navMenu.classList.contains("active")) {
+            menuToggle.innerHTML = "✕";
+            menuToggle.setAttribute("aria-label", "إغلاق القائمة");
+        } else {
+            menuToggle.innerHTML = "☰";
+            menuToggle.setAttribute("aria-label", "فتح القائمة");
+        }
+    });
+
+    // Close menu after clicking a link
+    document.querySelectorAll("#navMenu a").forEach(link => {
+        link.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+            menuToggle.innerHTML = "☰";
+            menuToggle.setAttribute("aria-label", "فتح القائمة");
+        });
+    });
+</script>
 <body>
-    
-     <header>
-<nav>
-            <h1>مجموعة <span>صبير</span> لتنظيم المناسبات</h1>
-            <ul>
-                <li><a href="#hero">الرئيسية</a></li>
-                <li><a href="#services">الخدمات</a></li>
-                <li><a href="#gallery">أعمالنا</a></li>
-                <li><a href="#contact" class="btn_nav">تواصل معنا</a></li>
-            </ul>
-             </nav>
-     </header>
+ <header>
+    <nav>
+        <h1>مجموعة <span>صبير</span> لتنظيم المناسبات</h1>
+
+        <!-- Mobile Menu Button -->
+        <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
+            ☰
+        </button>
+
+        <ul id="navMenu">
+            <li><a href="#hero">الرئيسية</a></li>
+            <li><a href="#services">الخدمات</a></li>
+            <li><a href="#gallery">أعمالنا</a></li>
+            <li><a href="#contact" class="btn_nav">تواصل معنا</a></li>
+        </ul>
+    </nav>
+ </header>
      <section id="hero" class="hero">
      <h1>مجموعة صبير لتنظيم المناسبات</h1>
       <p>نجعل مناسبتك لحظة لا تُنسى بلمسات فاخرة وتنظيم متكامل</p>
@@ -28,9 +58,10 @@
          </section>
  <section id="services" class="services">
     <h2>خدماتنا</h2>
-    <p class="services-desc">
-       <h4>نقدم مجموعة متكاملة من خدمات تنظيم المناسبات</h4> <br>
-    </p>
+        <div class="services-desc">
+       <h4>نقدم مجموعة متكاملة من خدمات تنظيم المناسبات</h4>
+             </div>
+
 
     <div class="services-box">
 
@@ -63,9 +94,9 @@
 
 <section id="gallery" class="gallery">
     <h2>أعمالنا</h2>
-    <p class="gallery-desc">
-       <h4>تنظيم وتجهيز فعالية خاصة في نادي النيل العالمي – الخرطوم</h4><br>
-    </p>
+<div class="gallery-desc">
+    <h4>تنظيم وتجهيز فعالية خاصة في نادي النيل العالمي – الخرطوم</h4>
+</div>
 
     <!-- الصورة الرئيسية -->
     <div class="gallery-main">
