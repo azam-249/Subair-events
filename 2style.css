@@ -70,12 +70,12 @@ nav {
 nav h1 {
     font-size: 14px;
     white-space: nowrap;
-   color: white;
+    color: #ffffff !important;
 }
 
 nav h1 span {
     font-size: 25px;
-    font-weight: 700;
+    font-weight: 1200;
     color: #c59d5f;
 }
 
